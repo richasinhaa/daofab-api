@@ -2,6 +2,7 @@ package com.api.daofab.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.daofab.model.Parent;
@@ -18,7 +19,10 @@ public class ParentController {
     }
 
     @GetMapping("/list")
-    public Iterable<Parent> list() {
-        return service.list();
+    public Iterable<Parent> list(
+    		@RequestParam(defaultValue = "0") Integer pageNo, 
+            @RequestParam(defaultValue = "2") Integer pageSize,
+            @RequestParam(defaultValue = "id") String sortBy) {
+        return service.list(pageNo, pageSize, sortBy);
     }
 }
