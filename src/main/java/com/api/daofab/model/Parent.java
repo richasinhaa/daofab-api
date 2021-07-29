@@ -21,16 +21,12 @@ public class Parent implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
-	@Column(name = "sender")
 	private String sender;
 	
-	@Column(name = "receiver")
 	private String receiver;
 	
-	@Column(name = "total_amount")
 	private Long totalAmount;
 	
-	@Column(name = "total_paid_amount")
 	private Long totalPaidAmount;
 
 	public Long getId() {
